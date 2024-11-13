@@ -26,11 +26,7 @@ public Class Transaction{
 
     //return methods
     public String getType(){
-         if(type){
-            return "deposit";
-        }else{
-            return "expense";
-        }
+         return type;
     }
 
     public String getCategory(){

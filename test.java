@@ -1,14 +1,4 @@
-public class Fart
-{
-    private int windPower;
+public static void main(String arg[]){
 
-    public Fart(int windPower)
-    {
-        windPower = windPower;
-    }
-//ballsak
-    public void toot()
-    {
-        windPower--;
-    }
+
 }
