@@ -10,23 +10,24 @@ public Class Transaction{
     private double amount;
     private Date date;
 
+    //contructors
     public Transaction(){
         type = true;
         category = "";
         amount = 0.0;
         date = null;
     }
-
-    public Transaction(boolean, isDeposit, String descript, double paid, Date date){
+    
+    public Transaction(boolean, isDeposit, String category, double paid, Date date){
         type = isDeposit;
-        category = descript;
+        this.category = category;
         amount = paid;
         this.date = date;
     }
 
-    public Transaction(boolean, isDeposit, String descript, double paid, int MM, int DD, int YYYY){
+    public Transaction(boolean, isDeposit, String category, double paid, int MM, int DD, int YYYY){
         type = isDeposit;
-        category = descript;
+        this.category = category;
         amount = paid;
         date = new Date(MM, DD, YYYY);
     }
