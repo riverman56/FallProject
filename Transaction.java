@@ -8,20 +8,27 @@ public Class Transaction{
     private boolean type;
     private String category;
     private double amount;
-    private String date;
+    private Date date;
 
     public Transaction(){
         type = true;
         category = "";
         amount = 0.0;
-        date = "NaN";
+        date = null;
     }
 
-    public Transaction(boolean, isDeposit, String descript, double paid, String date){
+    public Transaction(boolean, isDeposit, String descript, double paid, Date date){
         type = isDeposit;
         category = descript;
         amount = paid;
-        this.date = mmddyyyy
+        this.date = date;
+    }
+
+    public Transaction(boolean, isDeposit, String descript, double paid, int MM, int DD, int YYYY){
+        type = isDeposit;
+        category = descript;
+        amount = paid;
+        date = new Date(MM, DD, YYYY);
     }
 
     //return methods
@@ -37,7 +44,7 @@ public Class Transaction{
         return amount;
     }
 
-    public String getDate(){
+    public Date getDate(){
         return date;
     }
 
@@ -59,13 +66,13 @@ public Class Transaction{
     }
 
     public String toString(){
-        String str = "$" + amount;
+        String str = "";
 
         if(type){
-            str += " deposited ";
+            str += "+";
         }else{
-            str += " expended ";
+            str += "-";
         }
-        str += "on " + date + " for " + category ".";
+        str += "$" + amount + "on " + date + " for " + category ".";
     }
 }
