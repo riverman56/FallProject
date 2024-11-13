@@ -6,7 +6,7 @@ public class Fart
     {
         windPower = windPower;
     }
-
+//ballsak
     public void toot()
     {
         windPower--;
