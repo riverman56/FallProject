@@ -3,29 +3,32 @@
 
 
 */
-public class Transaction{
-
+public class Transaction
+{
     private boolean type;
     private String category;
     private double amount;
     private Date date;
 
     //contructors
-    public Transaction(){
+    public Transaction()
+    {
         type = true;
         category = "";
         amount = 0.0;
         date = null;
     }
     
-    public Transaction(boolean isDeposit, String category, double paid, Date date){
+    public Transaction(boolean isDeposit, String category, double paid, Date date)
+    {
         type = isDeposit;
         this.category = category;
         amount = paid;
         this.date = date;
     }
 
-    public Transaction(boolean isDeposit, String category, double paid, int MM, int DD, int YYYY){
+    public Transaction(boolean isDeposit, String category, double paid, int MM, int DD, int YYYY)
+    {
         type = isDeposit;
         this.category = category;
         amount = paid;
@@ -33,48 +36,56 @@ public class Transaction{
     }
 
     //return methods
-    public boolean getType(){
+    public boolean getType()
+    {
          return type;
     }
 
-    public String getCategory(){
+    public String getCategory()
+    {
         return category;
     }
 
-    public double getAmount(){
+    public double getAmount()
+    {
         return amount;
     }
 
-    public Date getDate(){
+    public Date getDate()
+    {
         return date;
     }
 
     //edit methods
-    public void editType(boolean isDeposit){
+    public void editType(boolean isDeposit)
+    {
         type = isDeposit;
     }
 
-    public void editCategory(String descript){
+    public void editCategory(String descript)
+    {
         category = descript;
     }
 
-    public void editAmount(double paid){
+    public void editAmount(double paid)
+    {
         amount = paid;
     }
 
-    public void editDate(Date date){
+    public void editDate(Date date)
+    {
         this.date = date;
     }
 
-    public String toString(){
+    public String toString()
+    {
         String str = "";
 
-        if(type){
+        if (type)
             str += "+";
-        }else{
+        else
             str += "-";
-        }
-        str += "$" + amount + " on " + date + " for " + category + "." ;
-        return str;
+        
+        return str + "$" + amount + " on " + date + " for " + category + "." ;
     }
 }
