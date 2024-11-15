@@ -69,7 +69,7 @@ public class FinanceReport {
 
     public String toString() {
         String str = "";
-        if(portfolio.isEmpty()){
+        if (portfolio.isEmpty()) {
             return "No Data";
         }
         Stack<Transaction> temp = new Stack<>();

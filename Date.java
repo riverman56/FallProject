@@ -1,11 +1,9 @@
-public class Date
-{
+public class Date {
     public int day;
     public int month;
     public int year;
 
-    public Date(int mm, int dd, int yyyy)
-    {
+    public Date(int mm, int dd, int yyyy) {
         month = mm;
         day = dd;
         year = yyyy;
@@ -13,8 +11,7 @@ public class Date
 
     // true means this date is >= other
     // false means this date is before other
-    public boolean compare(Date other)
-    {
+    public boolean compare(Date other) {
         if (year > other.year)
             return true;
 
@@ -36,8 +33,7 @@ public class Date
         return true;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return month + "/" + day + "/" + year;
     }
 }
