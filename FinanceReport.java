@@ -68,6 +68,9 @@ public class FinanceReport{
 
     public String toString(){
         String str = "";
+        if(portfolio.isEmpty()){
+            return "No Data";
+        }
         Stack<Transaction> temp = new Stack<>();
         while(!portfolio.isEmpty()){   
             str += portfolio.peek() +"\n";
