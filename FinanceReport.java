@@ -11,8 +11,8 @@ public class FinanceReport {
         portfolio.push(transaction);
     }
 
-    public void addTransaction(boolean isDeposit, String category, double paid, Date date) {
-        addTransaction(new Transaction(isDeposit, category, paid, date));
+    public void addTransaction(boolean isDeposit, String category, double amount, Date date) {
+        addTransaction(new Transaction(isDeposit, category, amount, date));
     }
 
     public double fullBalance() {
@@ -38,8 +38,8 @@ public class FinanceReport {
             portfolio.push(temp.pop());
     }
 
-    public void partialReport(int M1, int D1, int YYY1, int M2, int D2, int YYY2) {
-        partialReport(new Date(M1, D1, YYY1), new Date(M2, D2, YYY2));
+    public void partialReport(int mm1, int dd1, int yyyy1, int mm2, int dd2, int yyyy2) {
+        partialReport(new Date(mm1, dd1, yyyy1), new Date(mm2, dd2, yyyy2));
     }
 
     public double partialBalance(Date date1, Date date2) {
@@ -49,7 +49,7 @@ public class FinanceReport {
             Transaction transaction = portfolio.pop();
 
             if (transaction.getDate().compare(date1) && date2.compare(transaction.getDate())) {
-                if (transaction.getType())
+                if (transaction.getIsDeposit())
                     total += transaction.getAmount();
                 else
                     total -= transaction.getAmount();
@@ -63,8 +63,8 @@ public class FinanceReport {
         return total;
     }
 
-    public double partialBalance(int M1, int D1, int YYY1, int M2, int D2, int YYY2) {
-        return partialBalance(new Date(M1, D1, YYY1), new Date(M2, D2, YYY2));
+    public double partialBalance(int mm1, int dd1, int yyyy1, int mm2, int dd2, int yyyy2) {
+        return partialBalance(new Date(mm1, dd1, yyyy1), new Date(mm2, dd2, yyyy2));
     }
 
     public String toString() {
