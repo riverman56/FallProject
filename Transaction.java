@@ -3,7 +3,7 @@
 
 
 */
-public Class Transaction{
+public class Transaction{
 
     private boolean type;
     private String category;
@@ -18,14 +18,14 @@ public Class Transaction{
         date = null;
     }
     
-    public Transaction(boolean, isDeposit, String category, double paid, Date date){
+    public Transaction(boolean isDeposit, String category, double paid, Date date){
         type = isDeposit;
         this.category = category;
         amount = paid;
         this.date = date;
     }
 
-    public Transaction(boolean, isDeposit, String category, double paid, int MM, int DD, int YYYY){
+    public Transaction(boolean isDeposit, String category, double paid, int MM, int DD, int YYYY){
         type = isDeposit;
         this.category = category;
         amount = paid;
@@ -33,7 +33,7 @@ public Class Transaction{
     }
 
     //return methods
-    public String getType(){
+    public boolean getType(){
          return type;
     }
 
@@ -62,7 +62,7 @@ public Class Transaction{
         amount = paid;
     }
 
-    public void editDate(String date){
+    public void editDate(Date date){
         this.date = date;
     }
 
@@ -74,6 +74,7 @@ public Class Transaction{
         }else{
             str += "-";
         }
-        str += "$" + amount + "on " + date + " for " + category ".";
+        str += "$" + amount + " on " + date + " for " + category + "." ;
+        return str;
     }
 }

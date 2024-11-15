@@ -1,4 +1,4 @@
-public Class Date{
+public class Date{
 
     public int day;
     public int month;
