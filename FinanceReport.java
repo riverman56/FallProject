@@ -8,7 +8,13 @@ public class FinanceReport {
     }
 
     public void addTransaction(Transaction transaction) {
+        Stack<Transaction> temp = new Stack<>();
+        while (!portfolio.isEmpty() && transaction.getDate().compare(portfolio.peek().getDate())) {
+            temp.push(portfolio.pop());
+        }
         portfolio.push(transaction);
+        while (!temp.isEmpty())
+            portfolio.push(temp.pop());
     }
 
     public void addTransaction(boolean isDeposit, String category, double amount, Date date) {
@@ -19,27 +25,29 @@ public class FinanceReport {
         return partialBalance(00, 00, 0000, 99, 99, 9999);
     }
 
-    public void fullReport() {
-        partialReport(00, 00, 0000, 99, 99, 9999);
+    public String fullReport() {
+        return partialReport(00, 00, 0000, 99, 99, 9999);
     }
 
-    public void partialReport(Date date1, Date date2) {
+    public String partialReport(Date date1, Date date2) {
+        String str = "";
         Stack<Transaction> temp = new Stack<>();
         while (!portfolio.isEmpty()) {
             Transaction transaction = portfolio.pop();
 
             if (transaction.getDate().compare(date1) && date2.compare(transaction.getDate()))
-                System.out.println(transaction);
+                str += transaction + "\n";
 
             temp.push(transaction);
         }
 
         while (!temp.isEmpty())
             portfolio.push(temp.pop());
+        return str;
     }
 
-    public void partialReport(int mm1, int dd1, int yyyy1, int mm2, int dd2, int yyyy2) {
-        partialReport(new Date(mm1, dd1, yyyy1), new Date(mm2, dd2, yyyy2));
+    public String partialReport(int mm1, int dd1, int yyyy1, int mm2, int dd2, int yyyy2) {
+        return partialReport(new Date(mm1, dd1, yyyy1), new Date(mm2, dd2, yyyy2));
     }
 
     public double partialBalance(Date date1, Date date2) {
@@ -72,15 +80,6 @@ public class FinanceReport {
         if (portfolio.isEmpty()) {
             return "No Data";
         }
-        Stack<Transaction> temp = new Stack<>();
-        while (!portfolio.isEmpty()) {
-            str += portfolio.peek() + "\n";
-            temp.push(portfolio.pop());
-        }
-
-        while (!temp.isEmpty())
-            portfolio.push(temp.pop());
-
-        return str;
+        return fullReport();
     }
 }
