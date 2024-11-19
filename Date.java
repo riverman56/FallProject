@@ -33,6 +33,10 @@ public class Date {
         return true;
     }
 
+    public int difference(Date other) {
+        return 365*(other.year - year) + 30*(other.month - month) + (other.day - day);
+    }
+
     public String toString() {
         return month + "/" + day + "/" + year;
     }

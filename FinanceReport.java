@@ -21,6 +21,14 @@ public class FinanceReport {
         addTransaction(new Transaction(isDeposit, category, amount, date));
     }
 
+    public void addRecurring(boolean isDeposit, String category, double amount, Date start, Date end, int billingCycleMonths) {
+        Date lastPaid = start;
+        while(end.compare(lastPaid) ) {
+            addTransaction(isDeposit, category, amount, lastPaid);
+            lastPaid = new Date((lastPaid.month + billingCycleMonths)%12, lastPaid.day , lastPaid.year + (lastPaid.month + ((lastPaid.month + billingCycleMonths))/12));
+        }
+    }
+
     public double fullBalance() {
         return partialBalance(00, 00, 0000, 99, 99, 9999);
     }
