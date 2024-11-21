@@ -25,7 +25,7 @@ public class FinanceReport {
         Date lastPaid = start;
         while(end.compare(lastPaid) ) {
             addTransaction(isDeposit, category, amount, lastPaid);
-            lastPaid = new Date((lastPaid.month + billingCycleMonths)%12, lastPaid.day , lastPaid.year + (lastPaid.month + ((lastPaid.month + billingCycleMonths))/12));
+            lastPaid = new Date((lastPaid.month + billingCycleMonths)%12, lastPaid.day , lastPaid.year + (lastPaid.month + billingCycleMonths)/12);
         }
     }
 
@@ -84,7 +84,6 @@ public class FinanceReport {
     }
 
     public String toString() {
-        String str = "";
         if (portfolio.isEmpty()) {
             return "No Data";
         }
