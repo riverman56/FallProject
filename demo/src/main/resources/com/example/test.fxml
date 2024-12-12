@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="662.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ApplicationController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="373.0" prefWidth="530.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Group layoutX="148.0" layoutY="594.0" />
+            <TabPane prefHeight="635.0" prefWidth="436.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab text="Home">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Group layoutX="161.0" layoutY="246.0">
+                                 <children>
+                                    <Button layoutX="4.0" mnemonicParsing="false" text="Add Transaction" />
+                                    <Button layoutY="43.0" mnemonicParsing="false" text="Calculate Balance" />
+                                    <Button layoutX="4.0" layoutY="84.0" mnemonicParsing="false" text="Generate Report" />
+                                 </children>
+                              </Group>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                <Tab text="Add Transaction">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="addTransactionCategory" layoutX="124.0" layoutY="80.0" prefHeight="26.0" prefWidth="187.0" />
+                              <Text layoutX="124.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category" wrappingWidth="136.21630859375" />
+                              <Text layoutX="124.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="136.21630859375" />
+                              <Group layoutX="132.0" layoutY="159.0">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" selected="true" text="Deposit">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="transactionType" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton layoutX="84.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" />
+                                 </children>
+                              </Group>
+                              <TextField fx:id="addTransactionAmountDollars" layoutX="136.0" layoutY="221.0" prefHeight="26.0" prefWidth="120.0" />
+                              <Text layoutX="123.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="136.21630859375" />
+                              <Text layoutX="124.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" wrappingWidth="24.21630859375" />
+                              <Text layoutX="260.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="." wrappingWidth="24.21630859375" />
+                              <TextField fx:id="addTransactionAmountCents" layoutX="269.0" layoutY="221.0" prefHeight="26.0" prefWidth="47.0" />
+                              <Button layoutX="198.0" layoutY="438.0" mnemonicParsing="false" onAction="#addTransaction" text="Add" />
+                              <Text layoutX="129.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recurring?" wrappingWidth="136.21630859375" />
+                              <Group layoutX="126.0" layoutY="285.0">
+                                 <children>
+                                    <RadioButton fx:id="addTransactionRecurring" layoutX="31.0" mnemonicParsing="false" onAction="#onIsRecurringChanged" selected="true" text="Yes">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="isRecurring" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="addTransactionNotRecurring" layoutX="115.0" mnemonicParsing="false" onAction="#onIsRecurringChanged" selected="true" text="No" toggleGroup="$isRecurring" />
+                                 </children>
+                              </Group>
+                              <Group fx:id="recurringTransactionDatePickers" layoutX="65.0" layoutY="319.0" visible="false">
+                                 <children>
+                                    <DatePicker fx:id="addTransactionFromDatePicker" layoutY="17.0" prefHeight="26.0" prefWidth="147.0" />
+                                    <DatePicker fx:id="addTransactionToDatePicker" layoutX="160.0" layoutY="17.0" prefHeight="26.0" prefWidth="147.0" />
+                                    <Text layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+                                    <Text layoutX="160.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+                                 </children>
+                              </Group>
+                              <Group fx:id="nonRecurringTransactionDatePicker" layoutX="123.0" layoutY="319.0">
+                                 <children>
+                                    <DatePicker fx:id="addTransactionDatePicker" layoutY="16.568359375" />
+                                    <Text layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="136.21630859375" />
+                                 </children>
+                              </Group>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Calculate Balance">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton layoutX="104.0" layoutY="78.0" mnemonicParsing="false" selected="true" text="I want a full balance">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="reportType1" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton layoutX="104.0" layoutY="113.0" mnemonicParsing="false" text="I want a partial balance" toggleGroup="$reportType1" />
+                              <DatePicker disable="true" layoutX="66.0" layoutY="185.0" prefHeight="26.0" prefWidth="147.0" />
+                              <DatePicker disable="true" layoutX="233.0" layoutY="185.0" prefHeight="26.0" prefWidth="147.0" />
+                              <Text layoutX="66.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+                              <Text layoutX="233.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+                              <Button layoutX="189.0" layoutY="310.0" mnemonicParsing="false" text="Generate" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" height="42.0" layoutX="151.0" layoutY="380.0" stroke="BLACK" strokeType="INSIDE" width="143.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.5868055820465088" green="0.671122670173645" blue="0.75" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Text layoutX="168.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $XXXX.XX" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Generate Report">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton layoutX="104.0" layoutY="78.0" mnemonicParsing="false" selected="true" text="I want a full report">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="reportType" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton layoutX="104.0" layoutY="113.0" mnemonicParsing="false" text="I want a partial report" toggleGroup="$reportType" />
+                              <DatePicker disable="true" layoutX="66.0" layoutY="185.0" prefHeight="26.0" prefWidth="147.0" />
+                              <DatePicker disable="true" layoutX="233.0" layoutY="185.0" prefHeight="26.0" prefWidth="147.0" />
+                              <Text layoutX="66.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" />
+                              <Text layoutX="233.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+                              <Button layoutX="189.0" layoutY="310.0" mnemonicParsing="false" text="Generate" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Report">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView layoutX="32.0" layoutY="76.0" prefHeight="513.0" prefWidth="372.0">
+                                <columns>
+                                    <TableColumn prefWidth="75.0" text="Type" />
+                                  <TableColumn prefWidth="75.0" text="Date" />
+                                  <TableColumn prefWidth="75.0" text="Amount" />
+                                    <TableColumn prefWidth="75.0" text="Category" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

@@ -1,3 +1,5 @@
+package com.example;
+
 import java.util.Stack;
 
 public class FinanceReport {
@@ -21,11 +23,13 @@ public class FinanceReport {
         addTransaction(new Transaction(isDeposit, category, amount, date));
     }
 
-    public void addRecurring(boolean isDeposit, String category, double amount, Date start, Date end, int billingCycleMonths) {
+    public void addRecurring(boolean isDeposit, String category, double amount, Date start, Date end,
+            int billingCycleMonths) {
         Date lastPaid = start;
-        while(end.compare(lastPaid) ) {
+        while (end.compare(lastPaid)) {
             addTransaction(isDeposit, category, amount, lastPaid);
-            lastPaid = new Date((lastPaid.month + billingCycleMonths)%12, lastPaid.day , lastPaid.year + (lastPaid.month + billingCycleMonths)/12);
+            lastPaid = new Date((lastPaid.month + billingCycleMonths) % 12, lastPaid.day,
+                    lastPaid.year + (lastPaid.month + billingCycleMonths) / 12);
         }
     }
 

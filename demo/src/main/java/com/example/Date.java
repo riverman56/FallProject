@@ -1,3 +1,5 @@
+package com.example;
+
 public class Date {
     public int day;
     public int month;
@@ -34,7 +36,7 @@ public class Date {
     }
 
     public int difference(Date other) {
-        return 365*(other.year - year) + 30*(other.month - month) + (other.day - day);
+        return 365 * (other.year - year) + 30 * (other.month - month) + (other.day - day);
     }
 
     public String toString() {
